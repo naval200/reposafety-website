@@ -28,11 +28,11 @@ Not a general-purpose cybersecurity platform, malware product, or vulnerability 
 
 ## Operating Context
 
-Typical scene: laptop, cloned take-home, about to install or ask an agent to work in it. Invoke `/interview-repo-safety` after clone, before install. Skill source: `https://github.com/naval200/interview-repo-safety`. Site: `https://www.reposafety.com/`.
+Typical scene: laptop, cloned take-home, about to install or ask an agent to work in it. Invoke `/interview-repo-safety` after clone, before install. Skill source: `https://github.com/naval200/interview-repo-safety`. Site: `https://reposafety.com/`.
 
 ## Capabilities and Constraints
 
-- Static GitHub Pages. Use root-relative asset URLs (`/logo.png`, `/assets/…`) so the custom-domain 404 page still loads CSS and Home from nested missing paths. `naval200.github.io/reposafety-website` 301s to `www.reposafety.com`.
+- Static GitHub Pages. Use root-relative asset URLs (`/logo.png`, `/assets/…`) so the custom-domain 404 page still loads CSS and Home from nested missing paths. Custom domain is the apex `reposafety.com` (GitHub cert + HTTPS). `www.reposafety.com` and `naval200.github.io/reposafety-website` should redirect there.
 - `public/logo.png` is a stable published URL and must remain at that path. Do not redesign the logo.
 - Case studies are written from real skill reports. Do not invent customers, pass rates, extra catches, or named tools that were not used.
 - Never print secret values.
