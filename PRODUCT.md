@@ -32,7 +32,7 @@ Typical scene: laptop, cloned take-home, about to install or ask an agent to wor
 
 ## Capabilities and Constraints
 
-- Static GitHub Pages. Asset URLs must be relative (project site under `/reposafety-website/`).
+- Static GitHub Pages. Use root-relative asset URLs (`/logo.png`, `/assets/…`) so the custom-domain 404 page still loads CSS and Home from nested missing paths. `naval200.github.io/reposafety-website` 301s to `www.reposafety.com`.
 - `public/logo.png` is a stable published URL and must remain at that path. Do not redesign the logo.
 - Case studies are written from real skill reports. Do not invent customers, pass rates, extra catches, or named tools that were not used.
 - Never print secret values.
