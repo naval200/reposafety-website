@@ -2,8 +2,8 @@
 
 Public site for **RepoSafety**, a lightweight safety layer for coding-interview repositories.
 
-- Site: https://naval200.github.io/reposafety-website/
-- Logo (stable URL): https://naval200.github.io/reposafety-website/logo.png
+- Site: https://www.reposafety.com/
+- Logo (stable URL): https://www.reposafety.com/logo.png
 - Skill: https://github.com/naval200/interview-repo-safety
 
 ## Layout

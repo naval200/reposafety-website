@@ -197,11 +197,13 @@ code {
 
 .hero h1 {
   margin: 0 0 1rem;
-  max-width: 14ch;
+  max-width: 11em;
   font-size: clamp(2.35rem, 5.4vw, 4.35rem);
   font-weight: 550;
   letter-spacing: -0.04em;
   line-height: 0.98;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .lede {
@@ -320,7 +322,7 @@ code {
 
 .report div {
   display: grid;
-  grid-template-columns: 7.6rem 1fr;
+  grid-template-columns: 11rem 1fr;
   gap: 0.65rem;
   padding: 0.22rem 0;
 }
@@ -341,6 +343,11 @@ code {
 
 .section {
   padding: 6.25rem 0 0;
+  scroll-margin-top: 4rem;
+}
+
+.report-wrap .section {
+  padding-top: 2.75rem;
 }
 
 .section h2 {
@@ -363,13 +370,14 @@ code {
   margin: 1.75rem 0 0;
   padding: 0;
   list-style: none;
-  max-width: 28rem;
+  max-width: 40rem;
 }
 
 .flow li {
   position: relative;
   padding: 0 0 1.15rem 0;
   padding-left: 0;
+  color: var(--muted);
 }
 
 .flow li:not(:last-child)::after {
@@ -383,6 +391,7 @@ code {
 
 .flow strong {
   display: block;
+  color: var(--ink);
   font-weight: 550;
   letter-spacing: -0.02em;
 }
@@ -539,6 +548,97 @@ code {
 .checks p {
   margin: 0;
   color: var(--muted);
+}
+
+.claim-head {
+  margin: 2.25rem 0 0;
+  font-size: 1.02rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+}
+
+.claims {
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.claims li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.claims .mark {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
+.claims [data-ok] .mark {
+  color: var(--mint-ink);
+}
+
+.claims [data-no] .mark {
+  color: #6d3a32;
+}
+
+.claims strong {
+  display: block;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+}
+
+.claims p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+.install-block {
+  position: relative;
+  margin: 1.5rem 0 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.install-block pre {
+  margin: 0;
+  padding: 1rem 1.1rem 2.6rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.install-block .copy {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.4rem;
+}
+
+.plain {
+  margin: 1.4rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.plain h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+}
+
+.plain p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 68ch;
 }
 
 .split {

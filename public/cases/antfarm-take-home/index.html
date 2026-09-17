@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Antfarm take-home — DO NOT INSTALL / RUN</title>
+    <title>Fake take-home — DO NOT INSTALL / RUN</title>
     <meta
       name="description"
-      content="Phase 1 RepoSafety report: fake “Proof of Dev” take-home with a Tailwind decoy, private-scoped dropper, and C2. Nothing in the target was installed."
+      content="Real RepoSafety report: a fake “Proof of Dev” take-home. Following the README was enough to run hidden code. Nothing in the project was installed."
     />
     <link rel="icon" href="../../logo.png" type="image/png" />
     <link
       rel="canonical"
-      href="https://naval200.github.io/reposafety-website/cases/antfarm-take-home/"
+      href="https://www.reposafety.com/cases/antfarm-take-home/"
     />
     <link rel="stylesheet" href="../../assets/site.css" />
-    <meta property="og:title" content="Antfarm take-home — DO NOT INSTALL / RUN" />
+    <meta property="og:title" content="Fake take-home — DO NOT INSTALL / RUN" />
     <meta
       property="og:image"
-      content="https://naval200.github.io/reposafety-website/logo.png"
+      content="https://www.reposafety.com/logo.png"
     />
   </head>
   <body>
@@ -46,42 +46,48 @@
           Menu
         </button>
         <nav class="nav" id="nav" data-nav aria-label="Primary">
-          <a href="../../#how">How it works</a>
+          <a href="../../#checks">What it checks</a>
           <a href="./" aria-current="page">Example</a>
-          <a href="https://github.com/naval200/interview-repo-safety">GitHub</a>
-          <a class="nav-cta" href="https://github.com/naval200/interview-repo-safety"
-            >View on GitHub</a
-          >
+          <a href="../../#install">Install</a>
+          <a class="nav-cta" href="../../#install">Get the skill</a>
         </nav>
       </div>
     </header>
     <main id="main" class="report-wrap">
       <header class="mast">
         <p class="flag">DO NOT INSTALL / RUN · CONFIDENCE HIGH</p>
-        <h1>Antfarm-style take-home</h1>
+        <h1>A fake take-home that told you to install first</h1>
         <p>
-          Real Phase 1 report from <code>/interview-repo-safety</code>. The target
-          was not installed or executed. Mid-audit the workspace showed a
-          disclosure archive; this report is the re-audit of branch
-          <code>original</code> — the live trap.
+          Real report from <code>/interview-repo-safety</code>. The project was
+          not installed or started. This is the live trap on branch
+          <code>original</code>.
         </p>
+        <div class="plain">
+          <h2>In plain English</h2>
+          <p>
+            The README said <code>npm install && npm run dev</code>. That was
+            enough. An animation plugin the assignment did not need pulled in a
+            second package. That package talks to a raw IP address and runs the
+            reply as code. There was also an npm login token sitting in the repo.
+            The skill said do not install, before anything ran.
+          </p>
+        </div>
         <ul class="toc">
-          <li><a href="#chain">Detection chain</a></li>
-          <li><a href="#summary">Executive summary</a></li>
-          <li><a href="#inventory">Inventory</a></li>
-          <li><a href="#execution">Execution surface</a></li>
+          <li><a href="#chain">How it was caught</a></li>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#inventory">Packages</a></li>
+          <li><a href="#execution">What would have run</a></li>
           <li><a href="#secrets">Secrets</a></li>
-          <li><a href="#iocs">IOCs</a></li>
+          <li><a href="#iocs">Suspicious addresses</a></li>
           <li><a href="#already-ran">If you already ran it</a></li>
         </ul>
       </header>
 
       <section class="section" id="chain">
-        <h2>How the gate caught it</h2>
+        <h2>How it was caught</h2>
         <p>
-          Antfarm-style chain, confirmed before any install. The assignment asked
-          for on-chain reputation scoring. The animation plugin is not part of
-          that story.
+          Confirmed before any install. The assignment asked for on-chain
+          reputation scoring. The animation plugin is not part of that story.
         </p>
         <ol class="chain">
           <li>
@@ -112,7 +118,7 @@
       </section>
 
       <article class="prose">
-        <h2 id="summary">Executive summary</h2>
+        <h2 id="summary">Summary</h2>
         <p>
           Audited branch <code>original</code> (tracks
           <code>antfarm-original/main</code>) as a static-only review. Known
@@ -129,7 +135,7 @@
           <code>npm run dev</code>.
         </p>
 
-        <h2 id="inventory">Dependency inventory</h2>
+        <h2 id="inventory">Packages</h2>
         <p>
           Lockfile has 1251 packages (<code>lockfileVersion</code> 3). Transitives
           are lockfile-verified for the malware path. Remaining ~1200 packages
@@ -233,7 +239,7 @@
           <strong>not verified</strong> (MCP unavailable).
         </p>
 
-        <h2 id="execution">Git hooks / auto-run</h2>
+        <h2>Git hooks / editor auto-run</h2>
         <ul>
           <li><code>.git/hooks/</code>: only <code>*.sample</code> — none found (non-sample)</li>
           <li>Global <code>core.hooksPath</code> / <code>init.templateDir</code>: empty</li>
@@ -253,7 +259,7 @@
           normal CSS build.
         </p>
 
-        <h2>Dynamic execution / obfuscation</h2>
+        <h2 id="execution">Hidden code that would have run</h2>
         <p>
           <strong>CRITICAL</strong> (our static analysis found; also confirmed
           from a disclosure-sample <code>config.js</code> matching this lockfile
@@ -367,7 +373,7 @@
           </li>
         </ol>
 
-        <h2 id="iocs">IOCs</h2>
+        <h2 id="iocs">Suspicious addresses</h2>
         <ul>
           <li>domains: <code>registry.npmjs.org</code> (malware tarball host); C2 is IP-based</li>
           <li>IPs: <code>153.75.81.2</code></li>

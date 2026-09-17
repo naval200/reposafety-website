@@ -28,7 +28,7 @@ Not a general-purpose cybersecurity platform, malware product, or vulnerability 
 
 ## Operating Context
 
-Typical scene: laptop, cloned take-home, about to install or ask an agent to work in it. Invoke `/interview-repo-safety` after clone, before install. Skill source: `https://github.com/naval200/interview-repo-safety`. Site: `https://naval200.github.io/reposafety-website/`.
+Typical scene: laptop, cloned take-home, about to install or ask an agent to work in it. Invoke `/interview-repo-safety` after clone, before install. Skill source: `https://github.com/naval200/interview-repo-safety`. Site: `https://www.reposafety.com/`.
 
 ## Capabilities and Constraints
 

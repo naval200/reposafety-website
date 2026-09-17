@@ -3,31 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RepoSafety — Safely inspect untrusted repositories</title>
+    <title>RepoSafety — Don’t install the take-home yet</title>
     <meta
       name="description"
-      content="RepoSafety helps you inspect unfamiliar coding-interview repositories for potentially risky behavior before running them or handing them to an AI coding agent."
+      content="A Cursor command that reads an interview repository before you install it. It does not run the project. It does not prove the repo is safe."
     />
     <link rel="icon" href="logo.png" type="image/png" />
-    <link rel="canonical" href="https://naval200.github.io/reposafety-website/" />
-    <meta property="og:title" content="RepoSafety — Inspect before you execute" />
+    <link rel="canonical" href="https://www.reposafety.com/" />
+    <meta property="og:title" content="RepoSafety — Don’t install the take-home yet" />
     <meta
       property="og:description"
-      content="A safety layer for unfamiliar repositories and AI coding workflows."
+      content="Read a take-home repository first. Then decide whether to install."
     />
-    <meta
-      property="og:image"
-      content="https://naval200.github.io/reposafety-website/logo.png"
-    />
+    <meta property="og:image" content="https://www.reposafety.com/logo.png" />
     <link rel="stylesheet" href="assets/site.css" />
   </head>
   <body>
     <!--
-      THESIS: Inspection sits between receiving an untrusted take-home and running it. The page is a technical narrative proved by one real report — not a cybersecurity platform, metric hero, or dark SOC.
-      OWN-WORLD: Paper off-white, near-black Geist, Geist Mono for commands and the report artifact, hairline rules, black CTAs, logo mint as a quiet accent only.
-      STORY: Visitor understands the trust-boundary problem, sees the real /interview-repo-safety diagnosis, knows the limits, copies the command, opens GitHub.
-      FIRST VIEWPORT: Sticky logo nav. Large headline. Two CTAs. Copyable command. Compact real analysis panel from the Proof of Dev take-home.
-      FORM: Editorial developer-tool longform, brief-pinned (light paper). Replaces the previous night-checkpoint page.
+      THESIS: Pause between clone and install. Honest ticks and crosses against the real skill — not a scanner platform, not a jargon architecture page.
+      OWN-WORLD: Paper off-white, near-black Geist, Geist Mono for commands and the report, hairline rules, black CTAs, logo mint as a quiet accent only.
+      STORY: A candidate who just got a take-home knows what to do, what the skill actually checks, and what it cannot promise.
+      FIRST VIEWPORT: Sticky logo nav. Plain headline. Two CTAs. Copyable command. Compact real verdict from the Proof of Dev take-home.
+      FORM: Editorial developer-tool longform, brief-pinned (light paper). Distill of the previous jargon-heavy landing.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
     <a class="skip" href="#main">Skip to content</a>
@@ -47,13 +44,11 @@
           Menu
         </button>
         <nav class="nav" id="nav" data-nav aria-label="Primary">
-          <a href="#how">How it works</a>
+          <a href="#how">How to use it</a>
+          <a href="#checks">What it checks</a>
           <a href="#example">Example</a>
-          <a href="https://github.com/naval200/interview-repo-safety">GitHub</a>
           <a href="#install">Install</a>
-          <a class="nav-cta" href="https://github.com/naval200/interview-repo-safety"
-            >View on GitHub</a
-          >
+          <a class="nav-cta" href="#install">Get the skill</a>
         </nav>
       </div>
     </header>
@@ -61,37 +56,32 @@
     <main id="main">
       <section class="wrap hero">
         <div>
-          <h1>Safely inspect untrusted repositories before you run them.</h1>
+          <h1>Don’t install<br />the take-home yet.</h1>
           <p class="lede">
-            A lightweight safety layer for coding-interview repositories and AI
-            coding workflows.
+            Interview assignments often arrive as a full GitHub repo. The README
+            usually says to run <code>npm install</code>. That can run hidden code
+            on your laptop.
           </p>
           <p>
-            RepoSafety combines existing repository-analysis and security tools
-            into a focused workflow for inspecting unfamiliar code before you
-            execute it.
+            RepoSafety is a Cursor command. It reads the repository first — without
+            installing or running it — and tells you whether to install. You still
+            decide. A clean report is not a promise that the repo is safe.
           </p>
           <div class="actions">
-            <a class="btn" href="https://github.com/naval200/interview-repo-safety"
-              >View on GitHub →</a
-            >
-            <a class="btn btn-ghost" href="#example">See a real analysis ↓</a>
+            <a class="btn" href="#install">Get the Cursor skill →</a>
+            <a class="btn btn-ghost" href="#example">See a real catch ↓</a>
           </div>
           <div class="cmd">
             <code>/interview-repo-safety</code>
-            <button
-              class="copy"
-              type="button"
-              data-copy="/interview-repo-safety"
-            >
+            <button class="copy" type="button" data-copy="/interview-repo-safety">
               Copy command
             </button>
           </div>
         </div>
-        <aside class="panel" aria-label="Excerpt from a real Phase 1 report">
+        <aside class="panel" aria-label="Excerpt from a real report">
           <div class="panel-bar">
-            <span>Phase 1 · static only</span>
-            <span>no install / no run</span>
+            <span>real take-home · files only</span>
+            <span>nothing was installed</span>
           </div>
           <div class="report">
             <dl>
@@ -105,23 +95,18 @@
               </div>
               <div>
                 <dt>presented as</dt>
-                <dd>Proof of Dev · Next.js / wallet</dd>
+                <dd>Proof of Dev · Next.js wallet app</dd>
               </div>
               <div>
-                <dt>decoy</dt>
-                <dd>animatecss-tailwind-adapter@2.0.6</dd>
-              </div>
-              <div>
-                <dt>dropper</dt>
-                <dd>@aaron205whitmore/postcss-animate-utils@1.0.2</dd>
-              </div>
-              <div>
-                <dt>c2</dt>
-                <dd>153.75.81.2:1224/debugCheck</dd>
+                <dt>what was wrong</dt>
+                <dd>
+                  Extra animation package the assignment did not need, then a
+                  hidden package that talks to a mystery server and runs the reply
+                </dd>
               </div>
               <div>
                 <dt>secret</dt>
-                <dd>.npmrc npm _authToken · redacted</dd>
+                <dd>.npmrc npm token · value hidden</dd>
               </div>
             </dl>
           </div>
@@ -129,246 +114,348 @@
       </section>
 
       <section class="wrap section" id="problem">
-        <h2>Code you didn’t write deserves a second look.</h2>
+        <h2>The usual first steps are the risky ones.</h2>
         <p>
-          Coding assignments increasingly arrive as complete repositories. Before
-          reviewing them, you may clone them, install dependencies, run setup
-          scripts, start development servers, execute tests, or ask an AI coding
-          agent to work inside them.
+          You get a take-home. You clone it. You install packages. You start the
+          app. Maybe you ask an AI coding assistant to work in the folder. Any of
+          those steps can run code you have not read.
         </p>
-        <p>The repository is code, and code can execute.</p>
         <ol class="flow">
-          <li><strong>Clone repository</strong></li>
-          <li><strong>Install dependencies</strong></li>
-          <li><strong>Run scripts</strong></li>
-          <li><strong>Start application</strong></li>
-          <li><strong>AI agent modifies / executes code</strong></li>
+          <li><strong>Clone the repo</strong> This part is usually fine.</li>
+          <li>
+            <strong>Install packages</strong> This can run extra scripts the
+            moment you type it.
+          </li>
+          <li>
+            <strong>Start the app</strong> Starting the dev server can load the
+            trap even when install scripts look clean.
+          </li>
+          <li>
+            <strong>Let an AI agent loose in it</strong> An assistant that
+            “just installs dependencies” is running the same commands you would.
+          </li>
         </ol>
-        <p class="note">Every step crosses a trust boundary.</p>
-      </section>
-
-      <section class="statement wrap">
-        <h2>Don’t trust the repository. Inspect it first.</h2>
-        <p>
-          RepoSafety adds an inspection step between receiving an unfamiliar
-          repository and running it.
-        </p>
-        <figure class="diagram" aria-label="Inspection sits between the repository and a run decision">
-          <div>UNTRUSTED REPOSITORY</div>
-          <span class="arrow">↓</span>
-          <div class="node">RepoSafety</div>
-          <span class="arrow">↓</span>
-          <ul>
-            <li>repository structure</li>
-            <li>dependencies (incl. devDependencies)</li>
-            <li>lifecycle scripts</li>
-            <li>hooks and IDE auto-run</li>
-            <li>network / C2 indicators</li>
-            <li>credentials and git history</li>
-            <li>dynamic execution patterns</li>
-          </ul>
-          <span class="arrow">↓</span>
-          <div>HUMAN REVIEW</div>
-          <span class="arrow">↓</span>
-          <div>RUN / DON’T RUN</div>
-        </figure>
+        <p class="note">RepoSafety sits after clone, before install.</p>
       </section>
 
       <section class="wrap section" id="how">
-        <h2>One command. Several checks. One report.</h2>
+        <h2>Three steps. Then you decide.</h2>
         <ol class="steps">
           <li>
-            <span class="n">01</span>
+            <span class="n">1</span>
             <div>
-              <h3>Inspect</h3>
+              <h3>Clone. Stop.</h3>
               <p>
-                Read manifests, lockfiles, hooks, IDE tasks, and repository
-                structure. Identify executable surfaces without running them.
+                Copy the take-home to your machine. Do not run
+                <code>npm install</code>, <code>yarn</code>, <code>pnpm</code>,
+                <code>pip</code>, or the README’s “getting started” commands yet.
               </p>
             </div>
           </li>
           <li>
-            <span class="n">02</span>
+            <span class="n">2</span>
             <div>
-              <h3>Analyze</h3>
+              <h3>Run the command in Cursor</h3>
               <p>
-                Apply static detection rules and, when available, Sonatype
-                dependency intel and Opsera security-scan. Never install the
-                target to analyze it.
+                Open the folder and type <code>/interview-repo-safety</code> in
+                Agent chat. The skill only reads files. It does not install the
+                project to inspect it.
               </p>
             </div>
           </li>
           <li>
-            <span class="n">03</span>
+            <span class="n">3</span>
             <div>
-              <h3>Correlate</h3>
+              <h3>Read the verdict</h3>
               <p>
-                Classify packages against the assignment, collect IOCs, and emit
-                one categorical verdict with confidence.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="n">04</span>
-            <div>
-              <h3>Review</h3>
-              <p>
-                The developer decides what to run. Optional Phase 2 install uses
-                a Docker jail (<code>reposafety-run</code>), not the host.
-                RepoSafety does not make the decision for you.
+                You get one answer:
+                <strong>safe to install</strong>,
+                <strong>review first</strong>, or
+                <strong>do not install</strong> — plus a short report. You choose
+                what happens next.
               </p>
             </div>
           </li>
         </ol>
       </section>
 
-      <section class="wrap section" id="example">
-        <h2>This is what happens when you run it.</h2>
+      <section class="wrap section" id="checks">
+        <h2>What the skill actually does</h2>
         <p>
-          A real coding-interview repository analyzed with
-          <code>/interview-repo-safety</code>. The target was not installed or
-          executed.
+          Every row was checked against the public
+          <code>/interview-repo-safety</code> skill. A tick means the skill
+          performs that check. A cross means it does not — even if an older
+          version of this page implied it.
         </p>
-        <figure class="diagram" aria-label="Analysis sequence for the example repository">
-          <div>Interview repository</div>
-          <span class="arrow">↓</span>
-          <div class="node">/interview-repo-safety</div>
-          <span class="arrow">↓</span>
-          <div>Repository inspection</div>
-          <span class="arrow">↓</span>
-          <div>Execution surfaces</div>
-          <span class="arrow">↓</span>
-          <div>Findings</div>
-          <span class="arrow">↓</span>
-          <div>Human review</div>
-        </figure>
 
+        <h3 class="claim-head">The skill does this</h3>
+        <ul class="claims">
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Reads the repo without installing or running it</strong>
+              <p>
+                Looks at files only. No <code>npm install</code>, no tests, no
+                app start, no Docker of the take-home itself.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Checks package lists, including extra “dev” packages</strong>
+              <p>
+                Reads <code>package.json</code> and lock files. Also looks at
+                Python, Rust, Go, and other manifest files when they are there.
+                Packages your packages depend on are included when a lock file
+                can be read.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Checks scripts that run when you install</strong>
+              <p>
+                Flags <code>preinstall</code>, <code>postinstall</code>,
+                <code>prepare</code>, and similar keys — plus app scripts that
+                would load a trap on <code>npm run dev</code>.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Checks Git hooks and editor auto-run</strong>
+              <p>
+                Looks at <code>.git/hooks</code>, VS Code / Cursor tasks, IntelliJ
+                configs, and Dev Container commands that run when you open the
+                folder.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Looks for secrets, and hides the values</strong>
+              <p>
+                Checks <code>.npmrc</code>, <code>.env</code> files, CI config,
+                and git history. The report names the type, file, and severity.
+                It does not print the secret.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Looks for code that calls a remote server and then runs the reply</strong>
+              <p>
+                Static search for things like <code>eval</code>,
+                <code>new Function</code>, hidden loaders, and hardcoded IPs.
+                It records the addresses. It does not download the payload.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Asks whether the packages fit the assignment</strong>
+              <p>
+                If a wallet take-home ships a random animation plugin, that
+                mismatch is a finding — not automatic proof of malware, but a
+                reason to stop.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Looks for lookalike package names</strong>
+              <p>
+                Simple name checks (think <code>lodash</code> vs
+                <code>lodahs</code>). This is a heuristic, not a full commercial
+                database.
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Writes one report with one verdict</strong>
+              <p>
+                Exactly one of: safe to install, review first, or do not
+                install — plus high / medium / low confidence. No made-up
+                “safety score.”
+              </p>
+            </div>
+          </li>
+          <li data-ok>
+            <span class="mark" aria-hidden="true">✓</span>
+            <div>
+              <strong>Can install later in Docker, not on your laptop — only if you ask</strong>
+              <p>
+                After a “safe” or “review” verdict, you can request a sandbox
+                run. The box sees only the repo folder. The internet is blocked
+                except <code>registry.npmjs.org</code> until you name another
+                host. A “do not install” verdict refuses this unless you
+                clearly ask to observe.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="claim-head">The skill does not do this</h3>
+        <ul class="claims">
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Prove the repository is safe</strong>
+              <p>
+                The skill says this outright. A clean report means “nothing
+                obvious turned up,” not “this is safe.”
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Bundle Sonatype or Opsera scanning</strong>
+              <p>
+                Those tools are used only if you already have them in Cursor.
+                The skill does not install them. The published example ran
+                without them.
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Replace other security tools you already use</strong>
+              <p>
+                The skill has its own checks. It is not a new dashboard for
+                Sonatype, Opsera, or npm audit.
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Catch every hidden trick</strong>
+              <p>
+                Heavily obfuscated code and behavior that only appears after
+                install can be missed. File reading cannot see runtime.
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>See inside encrypted downloads in Docker</strong>
+              <p>
+                The sandbox logs which hosts were contacted and how many bytes
+                moved. It does not decrypt HTTPS.
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Replace a throwaway virtual machine</strong>
+              <p>
+                If the project needs your home folder, sudo, Docker-on-Docker,
+                or an open network, the skill will say you need a disposable
+                VM. It will not loosen the sandbox.
+              </p>
+            </div>
+          </li>
+          <li data-no>
+            <span class="mark" aria-hidden="true">✕</span>
+            <div>
+              <strong>Scan a GitHub URL from this website</strong>
+              <p>
+                This site explains the skill. The check runs in your editor,
+                on a repo you already cloned.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="wrap section" id="example">
+        <h2>This is what it caught on a real take-home.</h2>
+        <p>
+          A coding-interview repo presented as “Proof of Dev.” The README said
+          to run <code>npm install && npm run dev</code>. That was enough to
+          trigger the trap. The skill said <strong>do not install</strong>
+          before anything ran.
+        </p>
         <div class="panel mt-2">
           <div class="panel-bar">
-            <span>Interview Take-home Security Audit</span>
-            <span>branch original</span>
+            <span>Interview take-home</span>
+            <span>nothing was installed</span>
           </div>
           <div class="report">
             <dl>
               <div class="verdict">
-                <dt>VERDICT</dt>
+                <dt>verdict</dt>
                 <dd>DO NOT INSTALL / RUN</dd>
               </div>
               <div>
-                <dt>CONFIDENCE</dt>
+                <dt>confidence</dt>
                 <dd>HIGH</dd>
               </div>
               <div>
-                <dt>assignment</dt>
+                <dt>what the README asked</dt>
+                <dd>npm install && npm run dev</dd>
+              </div>
+              <div>
+                <dt>odd package</dt>
                 <dd>
-                  Presented as “Proof of Dev” (Next.js, wallet/RainbowKit,
-                  Alchemy). README: npm install && npm run dev.
+                  animatecss-tailwind-adapter — not needed for a wallet / scoring
+                  take-home
                 </dd>
               </div>
               <div>
-                <dt>mismatch</dt>
+                <dt>hidden package</dt>
+                <dd>@aaron205whitmore/postcss-animate-utils</dd>
+              </div>
+              <div>
+                <dt>what that package does</dt>
                 <dd>
-                  Animation/PostCSS stack is not required for that product story.
-                  It is the delivery path.
+                  Talks to 153.75.81.2 and runs the response as code. Do not
+                  open that address.
                 </dd>
               </div>
               <div>
-                <dt>decoy</dt>
-                <dd>
-                  animatecss-tailwind-adapter@2.0.6 — direct devDependency,
-                  required from apps/web/tailwind.config.ts
-                </dd>
+                <dt>secret in the repo</dt>
+                <dd>npm token in .npmrc (value hidden)</dd>
               </div>
               <div>
-                <dt>dropper</dt>
-                <dd>
-                  @aaron205whitmore/postcss-animate-utils@1.0.2 — private scope,
-                  restricted publish; lockfile-resolved
-                </dd>
+                <dt>Git hooks</dt>
+                <dd>Clean. The trap is the install / start path, not a hook.</dd>
               </div>
               <div>
-                <dt>execution</dt>
-                <dd>
-                  Import-time / Tailwind plugin evaluation. No install lifecycle
-                  script required. npm run dev is enough.
-                </dd>
-              </div>
-              <div>
-                <dt>dynamic</dt>
-                <dd>
-                  Obfuscated host → POST /debugCheck → base64 payload → new
-                  Function('require', …)(require)
-                </dd>
-              </div>
-              <div>
-                <dt>network</dt>
-                <dd>http://153.75.81.2:1224/debugCheck (raw IP HTTP)</dd>
-              </div>
-              <div>
-                <dt>credentials</dt>
-                <dd>
-                  .npmrc npm _authToken (CRITICAL, value redacted). Same class in
-                  git history at 3c6624c.
-                </dd>
-              </div>
-              <div>
-                <dt>hooks / IDE</dt>
-                <dd>
-                  None found (non-sample). Risk is npm install / dev, not Git
-                  hooks.
-                </dd>
-              </div>
-              <div>
-                <dt>sonatype</dt>
-                <dd>not verified / unavailable on this run</dd>
-              </div>
-              <div>
-                <dt>opsera</dt>
-                <dd>not verified / incomplete on this run</dd>
-              </div>
-              <div>
-                <dt>recommendation</dt>
-                <dd>DO NOT RUN. Phase 2 sandbox refused for this verdict.</dd>
+                <dt>extra scanners</dt>
+                <dd>Sonatype and Opsera were not available on this run</dd>
               </div>
             </dl>
           </div>
         </div>
-
         <div class="explain">
           <article>
-            <h3>What was inspected</h3>
+            <h3>In plain English</h3>
             <p>
-              Manifests and a 1251-package lockfile, tailwind.config.ts, .npmrc,
-              git history, .git/hooks, IDE/devcontainer surfaces, lifecycle
-              script flags, and static JS for the decoy/dropper path. Nothing in
-              the target was executed.
+              The assignment did not need an animation plugin. That plugin pulled
+              in a second package. The second package calls a raw IP address and
+              runs whatever comes back. Following the README is enough.
             </p>
           </article>
           <article>
-            <h3>What was found</h3>
+            <h3>If you already ran it</h3>
             <p>
-              A committed registry token, a decoy Tailwind plugin in
-              devDependencies, and a private-scoped package that talks to a
-              raw-IP host and evaluates the response. The animation stack does
-              not fit the stated assignment.
-            </p>
-          </article>
-          <article>
-            <h3>Why it matters</h3>
-            <p>
-              Following the README (npm install && npm run dev) is enough to
-              fetch the restricted package and reach RCE. Git hooks were clean.
-              The trap is the install/dev path the candidate is told to run
-              first.
-            </p>
-          </article>
-          <article>
-            <h3>What happens next</h3>
-            <p>
-              The skill reported DO NOT INSTALL / RUN and refused sandboxed
-              execution. It does not automatically declare a repository safe.
-              A human reads the report and decides. If this assignment already
-              ran elsewhere, treat that machine as compromised.
+              Treat that machine as compromised. The skill cannot undo an
+              install that already happened. Do not run this project in the
+              sandbox either — the verdict was do not install.
             </p>
           </article>
         </div>
@@ -377,208 +464,76 @@
         </p>
       </section>
 
-      <section class="wrap section" id="cursor">
-        <h2>Built for the agentic coding workflow.</h2>
+      <section class="wrap section" id="install">
+        <h2>Install the skill, then run it on the take-home.</h2>
         <p>
-          RepoSafety is designed to sit at the beginning of an AI-assisted coding
-          workflow, before an agent starts executing unfamiliar repository code.
+          This is a Cursor skill (it also works in Claude Code). It is not a
+          website you paste a GitHub link into.
         </p>
-        <figure class="diagram">
-          <div>Candidate repository</div>
-          <span class="arrow">↓</span>
-          <div class="node">/interview-repo-safety</div>
-          <span class="arrow">↓</span>
-          <div>Safety analysis</div>
-          <span class="arrow">↓</span>
-          <div>Human review</div>
-          <span class="arrow">↓</span>
-          <div>Coding agent</div>
-        </figure>
-        <div class="cmd cmd-block">
-          <code>/interview-repo-safety</code>
-          <button class="copy" type="button" data-copy="/interview-repo-safety">
-            Copy command
+        <div class="install-block">
+          <pre><code>git clone https://github.com/naval200/interview-repo-safety.git
+cd interview-repo-safety
+mkdir -p ~/.cursor/skills
+ln -s "$(pwd)/skills/interview-repo-safety" ~/.cursor/skills/interview-repo-safety</code></pre>
+          <button
+            class="copy"
+            type="button"
+            data-copy="git clone https://github.com/naval200/interview-repo-safety.git
+cd interview-repo-safety
+mkdir -p ~/.cursor/skills
+ln -s &quot;$(pwd)/skills/interview-repo-safety&quot; ~/.cursor/skills/interview-repo-safety"
+          >
+            Copy install
           </button>
         </div>
+        <ol class="steps">
+          <li>
+            <span class="n">1</span>
+            <div>
+              <h3>Restart Agent chat</h3>
+              <p>So Cursor picks up the new skill.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <div>
+              <h3>Clone the take-home. Do not install.</h3>
+              <p>Open that folder in Cursor.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <div>
+              <h3>Run <code>/interview-repo-safety</code></h3>
+              <p>Read the verdict before you follow the README.</p>
+            </div>
+          </li>
+        </ol>
         <p class="mt-1">
-          Phase 1 is always static. Announce: static-only audit, no install/run
-          of the target. Phase 2 runs only if you ask and the verdict is SAFE TO
-          INSTALL or REVIEW BEFORE INSTALLING. It uses a Docker jail with
-          folder-only filesystem access and default-deny egress
-          (<code>registry.npmjs.org</code> until you whitelist another host). A
-          block refuses install; observe-in-jail is a separate explicit request.
+          Docker is only needed later, if you ask to install inside the sandbox.
+          Other agents can use
+          <code>npx skills add naval200/interview-repo-safety</code>.
         </p>
-      </section>
-
-      <section class="wrap section" id="checks">
-        <h2>What RepoSafety checks</h2>
-        <p>
-          Categories below are surfaces the current skill actually inspects.
-          Optional tools appear in the report only when they return data.
-        </p>
-        <div class="checks">
-          <div>
-            <h3>Repository structure</h3>
-            <p>
-              Languages, package managers, workspaces, containers, custom
-              registries, private scopes, Git/tarball/file dependencies.
-            </p>
-          </div>
-          <div>
-            <h3>Dependencies</h3>
-            <p>
-              Direct and transitive, including devDependencies. Unusual names,
-              unexpected private scopes, assignment mismatch.
-            </p>
-          </div>
-          <div>
-            <h3>Scripts</h3>
-            <p>
-              preinstall, install, postinstall, prepare, and other lifecycle
-              keys. App scripts that would load a decoy on npm run dev.
-            </p>
-          </div>
-          <div>
-            <h3>Process execution</h3>
-            <p>
-              Dynamic eval (<code>new Function</code>), obfuscated loaders,
-              child_process in context of the assignment.
-            </p>
-          </div>
-          <div>
-            <h3>Network</h3>
-            <p>
-              Domains, URLs, raw IPs, and remote payload fetch mechanisms.
-              Recorded as IOCs. Payloads are not fetched.
-            </p>
-          </div>
-          <div>
-            <h3>Git hooks and IDE auto-run</h3>
-            <p>
-              Non-sample hooks, global hooksPath, .vscode / .devcontainer /
-              .idea tasks that run on open.
-            </p>
-          </div>
-          <div>
-            <h3>Credentials</h3>
-            <p>
-              .npmrc, .env, CI, and secrets in git history. Values redacted.
-              TYPE / FILE / LOCATION / SEVERITY only.
-            </p>
-          </div>
-          <div>
-            <h3>Optional tool reuse</h3>
-            <p>
-              Sonatype dependency intel and Opsera security-scan when those
-              tools are already available. Gaps are reported as not verified.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="wrap section" id="tools">
-        <h2>Not another scanner. A layer around the tools that already exist.</h2>
-        <p>
-          RepoSafety does not attempt to replace mature security and
-          static-analysis tools. It provides a focused workflow for applying
-          them to one specific problem: understanding an unfamiliar repository
-          before executing it.
-        </p>
-        <figure class="diagram">
-          <div class="node">RepoSafety</div>
-          <span class="arrow">↓</span>
-          <ul>
-            <li>static checks + helper scripts</li>
-            <li>Sonatype (when available)</li>
-            <li>Opsera security-scan (when available)</li>
-            <li>Phase 2: Docker jail + egress proxy</li>
-          </ul>
-          <span class="arrow">↓</span>
-          <div>Unified review</div>
-        </figure>
-      </section>
-
-      <section class="wrap section" id="threat">
-        <h2>Know what it can — and cannot — tell you.</h2>
-        <div class="split">
-          <div>
-            <h3>RepoSafety can help identify</h3>
-            <ul>
-              <li>Malicious or high-risk dependencies, including decoys in devDependencies</li>
-              <li>Committed registry tokens and secrets in git history</li>
-              <li>Remote fetch plus dynamic execution (C2-style) in package code</li>
-              <li>Assignment vs dependency mismatch</li>
-              <li>Git hooks and IDE auto-run surfaces</li>
-              <li>Where optional scanners were unavailable, so you do not over-read the report</li>
-            </ul>
-          </div>
-          <div>
-            <h3>RepoSafety cannot guarantee</h3>
-            <ul>
-              <li>that a repository is safe</li>
-              <li>absence of malware</li>
-              <li>absence of unknown vulnerabilities</li>
-              <li>safety against every obfuscated technique</li>
-              <li>runtime behavior that static analysis cannot observe</li>
-            </ul>
-          </div>
-        </div>
-        <p class="center-note">
-          The goal is risk reduction and informed review — not a guarantee of
-          safety.
-        </p>
-      </section>
-
-      <section class="wrap section" id="architecture">
-        <h2>Small surface. Composable architecture.</h2>
-        <figure class="diagram">
-          <div>Repository</div>
-          <span class="arrow">↓</span>
-          <div>Static inspector (no install / no run)</div>
-          <span class="arrow">↓</span>
-          <ul>
-            <li>inventory-node.mjs</li>
-            <li>scan-surfaces.sh</li>
-            <li>hash-hooks.sh</li>
-            <li>Sonatype · Opsera, if present</li>
-            <li>policy + detection rules</li>
-          </ul>
-          <span class="arrow">↓</span>
-          <div>Finding model → safety report</div>
-          <span class="arrow">↓</span>
-          <div>Human review</div>
-          <span class="arrow">↓</span>
-          <div>Phase 2: reposafety-run (Docker jail + allowlist proxy)</div>
-        </figure>
-      </section>
-
-      <section class="wrap section" id="install">
-        <h2>Read the implementation.</h2>
-        <p>
-          RepoSafety is intended to be understandable, inspectable and useful as
-          a developer tool. The implementation and methodology are available on
-          GitHub.
-        </p>
-        <div class="actions">
+        <div class="actions mt-1">
           <a class="btn" href="https://github.com/naval200/interview-repo-safety"
-            >View the repository →</a
+            >View the skill on GitHub →</a
           >
           <a
             class="btn btn-ghost"
-            href="https://github.com/naval200/interview-repo-safety#install"
-            >Install the Cursor skill →</a
+            href="https://github.com/naval200/interview-repo-safety/blob/master/skills/interview-repo-safety/README.md"
+            >Read the docs</a
           >
         </div>
       </section>
 
       <section class="cta-band wrap">
-        <h2>Before you run unfamiliar code, take a look under the hood.</h2>
-        <p>Run <code>/interview-repo-safety</code> against the repository first.</p>
+        <h2>Before you run npm install, run this.</h2>
+        <p>
+          <code>/interview-repo-safety</code> — then you decide.
+        </p>
         <div class="actions">
-          <a class="btn" href="https://github.com/naval200/interview-repo-safety"
-            >View RepoSafety on GitHub →</a
-          >
-          <a class="btn btn-ghost" href="#example">Read the real analysis</a>
+          <a class="btn" href="#install">Get the Cursor skill →</a>
+          <a class="btn btn-ghost" href="#example">Read the real catch</a>
         </div>
       </section>
     </main>
@@ -588,26 +543,24 @@
         <img src="logo.png" alt="" width="28" height="28" />
         RepoSafety
       </a>
-      <p>Safely inspect untrusted repositories before you run them.</p>
+      <p>Inspect an untrusted repository before you run it.</p>
       <ul class="foot-links">
         <li>
           <a href="https://github.com/naval200/interview-repo-safety">GitHub</a>
         </li>
         <li>
           <a
-            href="https://github.com/naval200/interview-repo-safety/blob/main/skills/interview-repo-safety/README.md"
+            href="https://github.com/naval200/interview-repo-safety/blob/master/skills/interview-repo-safety/README.md"
             >Documentation</a
           >
         </li>
         <li>
-          <a href="https://github.com/naval200/interview-repo-safety"
-            >Cursor Skill</a
-          >
+          <a href="#checks">What the skill checks</a>
         </li>
         <li>
           <a
-            href="https://github.com/naval200/interview-repo-safety/blob/main/skills/interview-repo-safety/SKILL.md"
-            >Methodology</a
+            href="https://github.com/naval200/interview-repo-safety/blob/master/skills/interview-repo-safety/SKILL.md"
+            >Skill source</a
           >
         </li>
       </ul>
@@ -618,7 +571,7 @@
         <a href="https://x.com/navalsaini">@navalsaini</a>
       </p>
       <p class="legal">
-        RepoSafety provides automated analysis and does not guarantee that a
+        RepoSafety helps you inspect a repository. It does not guarantee that a
         repository is safe. Inspect first. Execute second.
       </p>
     </footer>

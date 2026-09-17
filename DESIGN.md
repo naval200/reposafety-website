@@ -40,7 +40,8 @@ Primary CTAs are near-black. Mint is not used as a neon fill.
 - Black filled button / ghost bordered button
 - Copyable command chip
 - Report panel: paper, mono dl, real Phase 1 fields
-- Hairline steps, two-column explain/checks, centered mono diagrams
+- Hairline steps, two-column explain, tick/cross claims list (mint-ink ✓, warm-brown ✕)
+- Install command block with copy
 - Mobile: Menu toggle, paper sheet nav
 
 ## Motion
