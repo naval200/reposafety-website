@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fake take-home — DO NOT INSTALL / RUN</title>
+    <meta
+      name="description"
+      content="Real RepoSafety report: a fake “Proof of Dev” take-home. Following the README was enough to run hidden code. Nothing in the project was installed."
+    />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link
+      rel="canonical"
+      href="https://reposafety.com/cases/antfarm-take-home/"
+    />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <meta property="og:title" content="Fake take-home — DO NOT INSTALL / RUN" />
+    <meta
+      property="og:image"
+      content="https://reposafety.com/logo.png"
+    />
+  </head>
+  <body>
+    <!--
+      THESIS: A real Phase 1 report is the proof. Read mode.
+      OWN-WORLD: Same paper / Geist system as the landing.
+      STORY: Full audit for readers who want every section of the skill template.
+      FIRST VIEWPORT: Header, verdict line, title.
+      FORM: Evidence report inside the editorial developer-tool world.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <div class="wrap bar">
+        <a class="brand" href="/">
+          <img src="/logo.png" alt="" width="28" height="28" />
+          RepoSafety
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          Menu
+        </button>
+        <nav class="nav" id="nav" data-nav aria-label="Primary">
+          <a href="/#checks">What it checks</a>
+          <a href="/cases/antfarm-take-home/" aria-current="page">Example</a>
+          <a href="/#install">Install</a>
+          <a class="nav-cta" href="/#install">Get the skill</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="report-wrap">
+      <header class="mast">
+        <p class="flag">DO NOT INSTALL / RUN · CONFIDENCE HIGH</p>
+        <h1>A fake take-home that told you to install first</h1>
+        <p>
+          Real report from <code>/interview-repo-safety</code>. The project was
+          not installed or started. This is the live trap on branch
+          <code>original</code>.
+        </p>
+        <div class="plain">
+          <h2>In plain English</h2>
+          <p>
+            The README said <code>npm install && npm run dev</code>. That was
+            enough. An animation plugin the assignment did not need pulled in a
+            second package. That package talks to a raw IP address and runs the
+            reply as code. There was also an npm login token sitting in the repo.
+            The skill said do not install, before anything ran.
+          </p>
+        </div>
+        <ul class="toc">
+          <li><a href="#chain">How it was caught</a></li>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#inventory">Packages</a></li>
+          <li><a href="#execution">What would have run</a></li>
+          <li><a href="#secrets">Secrets</a></li>
+          <li><a href="#iocs">Suspicious addresses</a></li>
+          <li><a href="#already-ran">If you already ran it</a></li>
+        </ul>
+      </header>
+
+      <section class="section" id="chain">
+        <h2>How it was caught</h2>
+        <p>
+          Confirmed before any install. The assignment asked for on-chain
+          reputation scoring. The animation plugin is not part of that story.
+        </p>
+        <ol class="chain">
+          <li>
+            <strong>Committed <code>.npmrc</code> with an npm auth token</strong>
+            Lets <code>npm install</code> fetch a restricted package. Token value
+            redacted.
+          </li>
+          <li>
+            <strong>Decoy in devDependencies: <code>animatecss-tailwind-adapter@2.0.6</code></strong>
+            Required from <code>apps/web/tailwind.config.ts</code>. Unrelated to
+            the take-home.
+          </li>
+          <li>
+            <strong>Dropper: <code>@aaron205whitmore/postcss-animate-utils@1.0.2</code></strong>
+            Unexpected private scope. <code>publishConfig.access: restricted</code>.
+          </li>
+          <li>
+            <strong>C2 on a raw IP</strong>
+            <code>POST http://153.75.81.2:1224/debugCheck</code> — do not fetch
+            this payload.
+          </li>
+          <li>
+            <strong><code>new Function('require', …)(require)</code></strong>
+            Import-time / Tailwind plugin evaluation. No install lifecycle script
+            required. <code>npm run dev</code> is enough.
+          </li>
+        </ol>
+      </section>
+
+      <article class="prose">
+        <h2 id="summary">Summary</h2>
+        <p>
+          Audited branch <code>original</code> (tracks
+          <code>antfarm-original/main</code>) as a static-only review. Known
+          Antfarm / fake take-home supply-chain trap. Install or
+          <code>npm run dev</code> is enough to trigger the chain. Do not
+          install, run, or Phase-2 sandbox this tree.
+        </p>
+
+        <h2>Assignment context</h2>
+        <p>
+          Presented as “Proof of Dev” — on-chain developer reputation (Next.js,
+          wallet/RainbowKit, Alchemy/Etherscan, scoring worker, optional NFT/EAS).
+          README tells candidates to <code>npm install</code> &&
+          <code>npm run dev</code>.
+        </p>
+
+        <h2 id="inventory">Packages</h2>
+        <p>
+          Lockfile has 1251 packages (<code>lockfileVersion</code> 3). Transitives
+          are lockfile-verified for the malware path. Remaining ~1200 packages
+          were not fully reputation-scored (Sonatype unavailable). The malware
+          path alone is decisive.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Package</th>
+                <th>Version</th>
+                <th>Direct / transitive</th>
+                <th>Assessment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>animatecss-tailwind-adapter</code></td>
+                <td>2.0.6</td>
+                <td>Direct (devDep, apps/web)</td>
+                <td class="risk">SUSPICIOUS / HIGH RISK</td>
+              </tr>
+              <tr>
+                <td><code>@aaron205whitmore/postcss-animate-utils</code></td>
+                <td>1.0.2</td>
+                <td>Transitive (via decoy)</td>
+                <td class="risk">SUSPICIOUS / HIGH RISK</td>
+              </tr>
+              <tr>
+                <td>next / react / react-dom</td>
+                <td>16.2.4 / 19.2.4</td>
+                <td>Direct</td>
+                <td>COMMON</td>
+              </tr>
+              <tr>
+                <td>wagmi / viem / rainbowkit / ethers</td>
+                <td>various</td>
+                <td>Direct</td>
+                <td>COMMON</td>
+              </tr>
+              <tr>
+                <td><code>@ethereum-attestation-service/eas-sdk</code></td>
+                <td>2.9.0</td>
+                <td>Direct</td>
+                <td>COMMON</td>
+              </tr>
+              <tr>
+                <td><code>@alch/alchemy-sdk</code></td>
+                <td>^1.1.1</td>
+                <td>Direct</td>
+                <td>COMMON</td>
+              </tr>
+              <tr>
+                <td><code>@x402/*</code></td>
+                <td>^2.19.0</td>
+                <td>Direct</td>
+                <td>ESTABLISHED BUT NICHE</td>
+              </tr>
+              <tr>
+                <td>express / mongodb / zeromq</td>
+                <td>analysis service</td>
+                <td>Direct</td>
+                <td>COMMON</td>
+              </tr>
+              <tr>
+                <td>Rust indexer</td>
+                <td>Cargo.toml</td>
+                <td>Direct</td>
+                <td>COMMON — do not build either</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Unusual dependencies</h2>
+        <ul>
+          <li>
+            <code>animatecss-tailwind-adapter@2.0.6</code> — SUSPICIOUS.
+            Wired in <code>apps/web/tailwind.config.ts</code> via
+            <code>require('animatecss-tailwind-adapter')(...)</code>. Unrelated
+            to wallet-reputation scoring.
+          </li>
+          <li>
+            <code>@aaron205whitmore/postcss-animate-utils@1.0.2</code> —
+            SUSPICIOUS / malware. Unexpected private scope; only installable
+            with the attacker <code>.npmrc</code> token.
+          </li>
+          <li>
+            <code>@x402/*</code> — ESTABLISHED BUT NICHE for this take-home;
+            not the blocking finding.
+          </li>
+        </ul>
+
+        <h2>Typosquat / package confusion</h2>
+        <p>
+          Our static analysis found: decoy resembles legitimate Animate.css /
+          Tailwind plugin ecosystems; private scope
+          <code>@aaron205whitmore</code> looks like a personal/org package used
+          for package-confusion / gated malware. Sonatype typosquat intel:
+          <strong>not verified</strong> (MCP unavailable).
+        </p>
+
+        <h2>Git hooks / editor auto-run</h2>
+        <ul>
+          <li><code>.git/hooks/</code>: only <code>*.sample</code> — none found (non-sample)</li>
+          <li>Global <code>core.hooksPath</code> / <code>init.templateDir</code>: empty</li>
+          <li><code>.vscode</code> / <code>.devcontainer</code> / <code>.idea</code> auto-run: none found</li>
+        </ul>
+        <p>
+          Risk is <strong>npm install / dev</strong>, not Git hooks or IDE
+          folderOpen tasks.
+        </p>
+
+        <h2>Lifecycle scripts</h2>
+        <p>
+          No <code>preinstall</code> / <code>install</code> /
+          <code>postinstall</code> / <code>prepare</code> on the malware
+          packages in the lockfile (<code>hasInstallScript</code> absent).
+          Payload is import-time / Tailwind-plugin evaluation — still RCE on a
+          normal CSS build.
+        </p>
+
+        <h2 id="execution">Hidden code that would have run</h2>
+        <p>
+          <strong>CRITICAL</strong> (our static analysis found; also confirmed
+          from a disclosure-sample <code>config.js</code> matching this lockfile
+          version):
+        </p>
+        <ul>
+          <li>Obfuscated <code>themeService</code> base64 slice/reorder → host <code>153.75.81.2:1224</code></li>
+          <li><code>fetch</code> POST to <code>/debugCheck</code></li>
+          <li><code>Buffer.from(..., 'base64')</code> on response <code>message</code></li>
+          <li><code>new Function('require', dynamicCssRules)(require)</code> → Node RCE</li>
+        </ul>
+        <p>
+          App-local <code>child_process</code> in monorepo launchers and tests
+          is expected for this assignment shape — not the C2 chain.
+        </p>
+
+        <h2>Network / remote execution</h2>
+        <ul>
+          <li>C2: <code>http://153.75.81.2:1224/debugCheck</code> (raw IP HTTP)</li>
+          <li>Registry: <code>https://registry.npmjs.org/</code> for both malware tarballs</li>
+          <li>
+            Legitimate app endpoints (Alchemy, Etherscan, WalletConnect, localhost
+            worker) in <code>.env.example</code> — not the block reason
+          </li>
+        </ul>
+        <p>Do not fetch the C2 payload.</p>
+
+        <h2 id="secrets">Credentials / secrets</h2>
+        <p>Values redacted. Never reuse this npm token.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>File</th>
+                <th>Location</th>
+                <th>Severity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>npm <code>_authToken</code> (<code>npm_</code> prefix)</td>
+                <td><code>.npmrc</code> (working tree)</td>
+                <td>line 1 <code>//registry.npmjs.org/:_authToken=</code></td>
+                <td class="risk">CRITICAL</td>
+              </tr>
+              <tr>
+                <td>Same class of npm token</td>
+                <td>Git history</td>
+                <td>commit <code>3c6624c</code> (<code>.npmrc</code> added)</td>
+                <td class="risk">CRITICAL</td>
+              </tr>
+              <tr>
+                <td>Placeholder API / wallet keys</td>
+                <td><code>.env.example</code></td>
+                <td>documented placeholders only</td>
+                <td>LOW / informational</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Git history findings</h2>
+        <ul>
+          <li>
+            <code>.npmrc</code> with registry auth token introduced in
+            <code>3c6624c</code> (“feat(web): bootstrap Next.js app and Tailwind
+            setup”).
+          </li>
+          <li>
+            <code>animatecss-tailwind-adapter</code> present historically in
+            <code>apps/web</code> devDependencies from that era.
+          </li>
+          <li>
+            Current HEAD still contains <code>.npmrc</code> + malware deps (live
+            trap branch, not a cleaned disclosure archive).
+          </li>
+        </ul>
+
+        <h2>Sonatype findings</h2>
+        <p>
+          not verified / unavailable — Sonatype MCP namespace in error state;
+          auth timed out. No CVE/trust scores claimed.
+        </p>
+
+        <h2>Opsera findings</h2>
+        <p>
+          not verified / incomplete — Opsera authenticated; secrets scan requires
+          <code>gitleaks</code>, which was missing on the audit host. Static
+          findings above stand independently.
+        </p>
+
+        <h2>Static analysis findings</h2>
+        <ol>
+          <li>
+            Confirmed Antfarm-style chain before any install: obscure animation
+            devDep → private scoped dep → malicious JS → hardcoded IP HTTP →
+            base64 → <code>new Function</code>.
+          </li>
+          <li>Attacker <code>.npmrc</code> present so install can fetch the restricted package.</li>
+          <li>Lockfile pins exact malware versions and integrity hashes.</li>
+          <li><code>tailwind.config.ts</code> actively <code>require</code>s the decoy plugin.</li>
+          <li>No IDE folderOpen auto-exec; hooks clean.</li>
+          <li>
+            <code>apps/web/.next</code> artifacts exist; <code>node_modules</code>
+            was absent — do not install to “finish” a prior build.
+          </li>
+          <li>
+            Current branch <code>original</code> is the malicious assignment.
+            Report reflects that HEAD.
+          </li>
+        </ol>
+
+        <h2 id="iocs">Suspicious addresses</h2>
+        <ul>
+          <li>domains: <code>registry.npmjs.org</code> (malware tarball host); C2 is IP-based</li>
+          <li>IPs: <code>153.75.81.2</code></li>
+          <li>
+            URLs:
+            <code>http://153.75.81.2:1224/debugCheck</code>;
+            <code>https://registry.npmjs.org/animatecss-tailwind-adapter/-/animatecss-tailwind-adapter-2.0.6.tgz</code>;
+            <code>https://registry.npmjs.org/@aaron205whitmore/postcss-animate-utils/-/postcss-animate-utils-1.0.2.tgz</code>
+          </li>
+          <li>filenames: <code>.npmrc</code>; <code>apps/web/tailwind.config.ts</code>; lockfile entries for the two packages</li>
+          <li>hook hashes: none (no non-sample hooks)</li>
+          <li>
+            packages:
+            <code>animatecss-tailwind-adapter@2.0.6</code>;
+            <code>@aaron205whitmore/postcss-animate-utils@1.0.2</code>
+          </li>
+          <li>
+            integrity:
+            <code>sha512-xUYmRvcpcrc2Q5VT6muogMpOmHsXRdNo/cd87vXrZA0hziavzvHlJu9s6BRvP1/5yUa3mU8yJXFEiddLwLGDyw==</code>
+            (decoy);
+            <code>sha512-XRkEgb9Rl0n3qx5ozUpVxqTzZLcqfePskFeAgjBlQanPj9Ncn8iEU6FKUFiOL3XKjL9/cDyfJUgvjfcr123zAg==</code>
+            (dropper)
+          </li>
+          <li>
+            commits / refs: <code>3c6624c</code> (<code>.npmrc</code> + bootstrap);
+            branch <code>original</code> / remote <code>antfarm-original/main</code>
+          </li>
+        </ul>
+
+        <h2>Limitations</h2>
+        <ul>
+          <li>No install-time or runtime behavior observed (by design).</li>
+          <li>Sonatype reputation/CVE graph not verified.</li>
+          <li>Opsera gitleaks secrets scan not completed.</li>
+          <li>
+            Full transitive reputation review of ~1250 packages not performed;
+            malware path alone is decisive.
+          </li>
+          <li>
+            Dropper source corroborated via lockfile identity and prior static
+            read of the same version’s <code>config.js</code> / published campaign
+            docs; package tarball was not re-fetched.
+          </li>
+        </ul>
+
+        <div class="panel" id="already-ran">
+          <h2>Recommendation: DO NOT RUN</h2>
+          <p>
+            Phase 2 sandboxed install/run is refused for this verdict. If you
+            already installed or ran the original assignment elsewhere, treat
+            that machine as compromised and rotate credentials from a clean
+            device.
+          </p>
+          <p>
+            For a cleaned disclosure archive (malware removed, install blocked),
+            re-run this audit on that specific commit/branch only after confirming
+            HEAD.
+          </p>
+        </div>
+      </article>
+    </main>
+    <footer class="wrap site-footer">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="" width="28" height="28" />
+        RepoSafety
+      </a>
+      <p>Inspect an untrusted repository before you run it.</p>
+      <ul class="foot-links">
+        <li>
+          <a href="https://github.com/naval200/interview-repo-safety">GitHub</a>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/#example">Landing analysis</a>
+        </li>
+      </ul>
+      <p>
+        Contact — Naval Saini
+        <a href="mailto:flipflopapps@gmail.com">flipflopapps@gmail.com</a>
+        ·
+        <a href="https://x.com/navalsaini">@navalsaini</a>
+      </p>
+      <p class="legal">
+        This page is a detection report. Indicators are listed so you can
+        recognize the same chain, not so you can fetch payloads. RepoSafety
+        does not guarantee that a repository is safe.
+      </p>
+    </footer>
+    <script src="/assets/site.js"></script>
+  </body>
+</html>
