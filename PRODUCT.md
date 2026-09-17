@@ -39,6 +39,7 @@ Typical scene: laptop, cloned take-home, about to install or ask an agent to wor
 - Do not present exploit instructions.
 - Do not claim complete security, guaranteed detection, malware protection, or that a repository is definitely safe.
 - Optional tools: Sonatype (`audit-dependencies`, `check-dependency`, `dependency-advisor`) and Opsera (`security-scan`) when available. Custom static checks always run. Helper scripts: `inventory-node.mjs`, `scan-surfaces.sh`, `hash-hooks.sh`.
+- Phase 2 is a Docker jail (`sandbox/reposafety-run`): folder-only FS, default-deny egress, allowlist starts at `registry.npmjs.org`. Not a TLS-intercepting malware sandbox.
 
 ## Brand Commitments
 

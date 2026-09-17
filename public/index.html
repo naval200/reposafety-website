@@ -213,8 +213,9 @@
             <div>
               <h3>Review</h3>
               <p>
-                The developer decides what to run. RepoSafety assists with
-                inspection. It does not make the decision for you.
+                The developer decides what to run. Optional Phase 2 install uses
+                a Docker jail (<code>reposafety-run</code>), not the host.
+                RepoSafety does not make the decision for you.
               </p>
             </div>
           </li>
@@ -401,9 +402,11 @@
         </div>
         <p class="mt-1">
           Phase 1 is always static. Announce: static-only audit, no install/run
-          of the target. Phase 2 (sandboxed execution) runs only if you ask and
-          the verdict is SAFE TO INSTALL or REVIEW BEFORE INSTALLING. A block
-          stops there.
+          of the target. Phase 2 runs only if you ask and the verdict is SAFE TO
+          INSTALL or REVIEW BEFORE INSTALLING. It uses a Docker jail with
+          folder-only filesystem access and default-deny egress
+          (<code>registry.npmjs.org</code> until you whitelist another host). A
+          block refuses install; observe-in-jail is a separate explicit request.
         </p>
       </section>
 
@@ -488,6 +491,7 @@
             <li>static checks + helper scripts</li>
             <li>Sonatype (when available)</li>
             <li>Opsera security-scan (when available)</li>
+            <li>Phase 2: Docker jail + egress proxy</li>
           </ul>
           <span class="arrow">↓</span>
           <div>Unified review</div>
@@ -542,7 +546,9 @@
           <span class="arrow">↓</span>
           <div>Finding model → safety report</div>
           <span class="arrow">↓</span>
-          <div>Human review → run / don’t run</div>
+          <div>Human review</div>
+          <span class="arrow">↓</span>
+          <div>Phase 2: reposafety-run (Docker jail + allowlist proxy)</div>
         </figure>
       </section>
 
